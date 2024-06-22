@@ -1,4 +1,4 @@
-export default function EventsLayout({
+export default function ContactLayout({
     children,
   }: Readonly<{
     children: React.ReactNode;
