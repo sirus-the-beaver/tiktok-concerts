@@ -21,7 +21,7 @@ export default function RootLayout({
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/concerts">Concerts</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
         {children}
