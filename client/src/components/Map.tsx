@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
@@ -18,8 +19,9 @@ const sampleEvents = [
 ];
 
 export default function Map() {
+    console.log(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
     return (
-        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
             <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={12}>
                 {sampleEvents.map(event => (
                     <Marker key={event.id} position={event.position} label={event.name} />

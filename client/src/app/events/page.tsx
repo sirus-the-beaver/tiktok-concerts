@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import React from 'react';
+import Map from '../../components/Map';
 
 export default function Events() {
     return (
@@ -10,6 +12,7 @@ export default function Events() {
             <main className='container mx-auto px-4'>
             <h1 className='text-4xl font-bold my-4'>Events</h1>
             <p className='text-lg'>Check out our upcoming events.</p>
+            <Map />
             <ul className='mt-8 space-y-6'>
                 <li>
                 <h2 className='text-2xl font-bold'>Event 1</h2>

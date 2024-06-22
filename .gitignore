@@ -1,6 +1,6 @@
 client/node_modules/
 client/.next/
 .env
-.env.local
+client/.env.local
 client/tailwind.config.ts
 client/postcss.config.mjs
