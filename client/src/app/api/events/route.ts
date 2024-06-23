@@ -25,3 +25,18 @@ const events: Event[] = [
 export async function GET() {
     return NextResponse.json(events);
 }
+
+export async function POST(req: Request) {
+    const { title, description, date, location, latitude, longitude } = await req.json();
+    const newEvent: Event = {
+        id: String(events.length + 1).toString(),
+        title,
+        description,
+        date,
+        location,
+        latitude: 0,
+        longitude: 0
+    };
+    events.push(newEvent);
+    return NextResponse.json(newEvent, { status: 201 });
+}

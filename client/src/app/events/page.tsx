@@ -5,6 +5,7 @@ import Map from '../../components/Map';
 import axios from 'axios';
 import { Event } from '../../types/event';
 import EventCard from '../../components/EventCard';
+import EventForm from '../../components/EventForm';
 
 export default function Events() {
     const [events, setEvents] = useState<Event[]>([]);
@@ -21,6 +22,15 @@ export default function Events() {
         fetchEvents();
     }, []);
 
+    const handleEventSubmit = async (event: { title: string; description: string; date: string; location: string; latitude: number; longitude: number }) => {
+        try {
+            const response = await axios.post('/api/events', event);
+            setEvents([...events, response.data]);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
         <div>
             <Head>
@@ -29,6 +39,7 @@ export default function Events() {
             </Head>
             <main className='container mx-auto px-4'>
             <h1 className='text-4xl font-bold my-4'>Events</h1>
+            <EventForm onSubmit={handleEventSubmit} />
             <p className='text-lg'>Check out our upcoming events.</p>
             <Map events={events} />
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
