@@ -1,8 +1,26 @@
+"use client";
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Map from '../../components/Map';
+import axios from 'axios';
+import { Event } from '../../types/event';
+import EventCard from '../../components/EventCard';
 
 export default function Events() {
+    const [events, setEvents] = useState<Event[]>([]);
+
+    useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const response = await axios.get('/api/events');
+                setEvents(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchEvents();
+    }, []);
+
     return (
         <div>
             <Head>
@@ -12,21 +30,12 @@ export default function Events() {
             <main className='container mx-auto px-4'>
             <h1 className='text-4xl font-bold my-4'>Events</h1>
             <p className='text-lg'>Check out our upcoming events.</p>
-            <Map />
-            <ul className='mt-8 space-y-6'>
-                <li>
-                <h2 className='text-2xl font-bold'>Event 1</h2>
-                <p className='text-lg'>Event 1 description</p>
-                </li>
-                <li>
-                <h2 className='text-2xl font-bold'>Event 2</h2>
-                <p className='text-lg'>Event 2 description</p>
-                </li>
-                <li>
-                <h2 className='text-2xl font-bold'>Event 3</h2>
-                <p className='text-lg'>Event 3 description</p>
-                </li>
-            </ul>
+            <Map events={events} />
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+                {events.map((event) => (
+                    <EventCard key={event.id} event={event} />
+                ))}
+            </div>
             </main>
         </div>
     );

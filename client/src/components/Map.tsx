@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { Event } from '../types/event';
 
 const mapContainerStyle = {
     width: '100%',
@@ -8,23 +9,21 @@ const mapContainerStyle = {
 };
 
 const center = {
-    lat: 37.7749,
-    lng: -122.4194
+    lat: 0,
+    lng: 0
 };
 
-const sampleEvents = [
-    {id: 1, name: 'Concert 1', position: {lat: 37.7749, lng: -122.4194}},
-    {id: 2, name: 'Concert 2', position: {lat: 37.7849, lng: -122.4094}},
-    {id: 3, name: 'Concert 3', position: {lat: 37.7649, lng: -122.4294}}
-];
+interface MapProps {
+    events: Event[];
+}
 
-export default function Map() {
-    console.log(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY);
+export default function Map({ events }: MapProps) {
+    const mapCenter = events.length ? { lat: events[0].latitude, lng: events[0].longitude } : center;
     return (
         <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
-            <GoogleMap mapContainerStyle={mapContainerStyle} center={center} zoom={12}>
-                {sampleEvents.map(event => (
-                    <Marker key={event.id} position={event.position} label={event.name} />
+            <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={12}>
+                {events.map(event => (
+                    <Marker key={event.id} position={{ lat: event.latitude, lng: event.longitude }} />
                 ))}
             </GoogleMap>
         </LoadScript>
