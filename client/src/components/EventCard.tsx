@@ -1,17 +1,31 @@
 import React from 'react';
-import { Event } from '../types/event';
+import { deleteEvent } from "@/lib/action";
+import Event from "@/models/Event";
 
-interface EventCardProps {
-    event: Event;
-}
-
-export default function EventCard({ event }: EventCardProps) {
-    return (
-        <div className='border p-4 rounded'>
-            <h2 className='text-xl font-bold'>{event.title}</h2>
-            <p>{event.description}</p>
-            <p>{event.date}</p>
-            <p>{event.location}</p>
-        </div>
-    );
-}
+export default async function GetEvents() {
+    try {
+        const events = await Event.find();
+        if (events.length === 0) {
+            return <h1>No Events</h1>;
+        } else {
+            return (
+                <div>
+                    {events.map((event: any) => (
+                        <div key={event._id}>
+                            <h3>{event.title as string}</h3>
+                            <p>{event.description as string}</p>
+                            <p>{event.date as string}</p>
+                            <p>{event.location as string}</p>
+                            <form action={deleteEvent}>
+                                <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
+                                <button className='border rounded p-2 bg-red-400'>Delete</button>
+                            </form>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
