@@ -1,3 +1,5 @@
+import React from 'react';
+
 /**
  * `AboutLayout` is a layout component that wraps the content of the about page.
  * It is used to provide a consistent layout for the about page.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { connectToDatabase } from "@/lib/db";
+import React from "react";
 
 // Load the Inter font with the Latin subset.
 const inter = Inter({ subsets: ["latin"] });
