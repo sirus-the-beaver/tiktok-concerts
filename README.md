@@ -50,6 +50,8 @@ To set up the project locally, follow these steps:
 2. **Install dependencies:**
 
     ```bash
+    cd client
+    npm install
     
 3. **Go to Google Cloud Console to create a project, enable Maps JavaScript API, and obtain API key**
 
