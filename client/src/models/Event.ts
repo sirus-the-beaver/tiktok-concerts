@@ -15,6 +15,7 @@ export interface IEventDocument extends IEvent, Document {
     updatedAt: Date;
 };
 
+// Create a new schema for events
 const eventSchema = new mongoose.Schema<IEventDocument>(
     {
         _id: { type: mongoose.Schema.Types.ObjectId, auto: true},
@@ -28,6 +29,7 @@ const eventSchema = new mongoose.Schema<IEventDocument>(
     { timestamps: true }
 );
 
+// Create a new model for events
 const Event: Model<IEventDocument> = 
     mongoose.models?.Event || mongoose.model('Event', eventSchema);
 

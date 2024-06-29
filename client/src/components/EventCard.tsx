@@ -2,8 +2,14 @@ import React from 'react';
 import { deleteEvent } from "@/lib/action";
 import Event from "@/models/Event";
 
+/**
+ * Get all events.
+ * 
+ * @returns All events.
+ */
 export default async function GetEvents() {
     try {
+        // Get all events
         const events = await Event.find();
         if (events.length === 0) {
             return <h1>No Events</h1>;

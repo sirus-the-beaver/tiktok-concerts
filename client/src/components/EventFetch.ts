@@ -1,7 +1,13 @@
 import { connectToDatabase } from "../lib/db";
 import Event from "../models/Event";
 
+/**
+ * Get all events.
+ * 
+ * @returns All events.
+ */
 export const getEvents = async () => {
+    // Connect to the database
     await connectToDatabase();
 
     try {

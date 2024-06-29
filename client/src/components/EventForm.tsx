@@ -3,7 +3,13 @@ import { createEvents } from "@/lib/action";
 import { useRef } from "react";
 import React from 'react';
 
+/**
+ * Event form component.
+ * 
+ * @returns The event form component.
+ */
 export default function EventForm() {
+    // Create a reference to the form element
     const ref = useRef<HTMLFormElement>(null);
 
     const inputStyle = {

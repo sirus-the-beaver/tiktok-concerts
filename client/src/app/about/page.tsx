@@ -1,5 +1,10 @@
 import Head from 'next/head';
 
+/**
+ * About page.
+ * 
+ * @returns {JSX.Element} About page.
+ */
 export default function About() {
     return (
       <div>

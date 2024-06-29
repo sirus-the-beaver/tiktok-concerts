@@ -5,7 +5,13 @@ import EventCard from "@/components/EventCard";
 import EventForm from "@/components/EventForm";
 import { getEvents } from "@/components/EventFetch";
 
+/**
+ * Events page.
+ * 
+ * @returns {JSX.Element} Events page.
+ */
 export default async function Events() {
+    // Fetch events
     const events = await getEvents();
 
     return (
@@ -18,7 +24,7 @@ export default async function Events() {
             <h1 className='text-4xl font-bold my-4'>Events</h1>
             <EventForm />
             <p className='text-lg'>Check out our upcoming events.</p>
-            <Map events={events}/>
+            <Map events={events}/> 
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
                 <EventCard />
             </div>
