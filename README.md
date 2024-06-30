@@ -9,6 +9,7 @@ Welcome to the TikTok Concerts project! This project is part of the TechJam hack
 - [Tech Stack](#tech-stack)
 - [Setup](#setup)
 - [Usage](#usage)
+- [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -72,6 +73,12 @@ To set up the project locally, follow these steps:
 - Navigate to /events to see a list of upcoming events
 - Use the map feature to explore events happening around the world
 - Sign up for notifications to get alerts about nearby events
+
+## Documentation
+
+This project uses JSDoc for documentation. The documentation provides detailed information about the function used in the project.
+
+The documentation is hosted on GitHub Pages and can be viewed [here](https://sirus-the-beaver.github.io/tiktok-concerts/).
 
 ## Contributing
 
