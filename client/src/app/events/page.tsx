@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useEffect, useState} from 'react';
+import React from 'react';
 import Map from '../../components/Map';
 import EventCard from "@/components/EventCard";
 import EventForm from "@/components/EventForm";

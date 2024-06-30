@@ -62,3 +62,38 @@ export async function deleteEvent(id: FormData) {
         return {message: 'Failed to delete event'};
     }
 };
+
+/**
+ * Update an event.
+ * 
+ * @param formData - The form data.
+ * 
+ * @returns The updated event.
+ */
+export async function updateEvent(formData: FormData) {
+    const eventId = formData.get('id');
+    const event = await Event.findOne({ _id: eventId });
+    const formerTitle = event?.title;
+    const formerDescription = event?.description;
+    const formerDate = event?.date;
+    const formerLocation = event?.location;
+    const formerLatitude = event?.latitude;
+    const formerLongitude = event?.longitude;
+
+    try {
+        await Event.updateOne({ _id: eventId },
+            {
+                title: formData.get('title') === '' ? formerTitle : formData.get('title'),
+                description: formData.get('description') === '' ? formerDescription : formData.get('description'),
+                date: formData.get('date') === '' ? formerDate : formData.get('date'),
+                location: formData.get('location') === '' ? formerLocation : formData.get('location'),
+                latitude: formData.get('latitude') === '' ? formerLatitude : formData.get('latitude'),
+                longitude: formData.get('longitude') === '' ? formerLongitude : formData.get('longitude')
+            }
+        );
+        revalidatePath('/events');
+        return (`Successfully updated event with id ${eventId}`);
+    } catch (error) {
+        return {message: 'Failed to update event'};
+    }
+};

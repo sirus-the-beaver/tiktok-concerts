@@ -26,6 +26,10 @@ export default async function GetEvents() {
                                 <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
                                 <button className='border rounded p-2 bg-red-400'>Delete</button>
                             </form>
+                            <form action="/update">
+                                <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
+                                <button className='border rounded p-2 bg-blue-400'>Update</button>
+                            </form>
                         </div>
                     ))}
                 </div>
