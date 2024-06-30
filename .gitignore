@@ -4,4 +4,4 @@ client/.next/
 client/.env.local
 client/tailwind.config.ts
 client/postcss.config.mjs
-/server/node_modules/
+client/coverage/
