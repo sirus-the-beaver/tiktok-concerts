@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { connectToDatabase } from "@/lib/db";
 import React from "react";
-
-// Load the Inter font with the Latin subset.
-const inter = Inter({ subsets: ["latin"] });
 
 // Metadata for the layout.
 export const metadata: Metadata = {
@@ -28,7 +24,7 @@ export default function RootLayout({
   connectToDatabase();
   return (
     <html lang="en">
-    <body className={inter.className}>
+    <body>
         <nav className="bg-blue-800 p-4">
           <ul className="flex space-x-4">
             <li><a href="/">Home</a></li>

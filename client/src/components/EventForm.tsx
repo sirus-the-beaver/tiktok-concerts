@@ -1,5 +1,5 @@
 "use client";
-import { createEvents } from "@/lib/action";
+import { createEvent } from "@/lib/action";
 import { useRef } from "react";
 import React from 'react';
 
@@ -27,7 +27,7 @@ export default function EventForm() {
             <h2 className='text-2xl font-bold'>Add Event</h2>
             <form className='space-y-4' ref={ref} action={async (FormData) => {
                 ref.current?.reset();
-                await createEvents(FormData);
+                await createEvent(FormData);
             }}>
                 <div>
                     <label htmlFor="title" className='block text-sm font-medium text-gray-700'>Title</label>

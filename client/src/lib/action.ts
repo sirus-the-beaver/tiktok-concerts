@@ -10,7 +10,7 @@ import { connectToDatabase } from "./db";
  * 
  * @returns The new event.
  */
-export const createEvents = async (formData: FormData) => {
+export async function createEvent(formData: FormData) {
     // Connect to the database
     await connectToDatabase();
 
@@ -51,7 +51,7 @@ export const createEvents = async (formData: FormData) => {
  * 
  * @returns The deleted event.
  */
-export const deleteEvent = async (id: FormData) => {
+export async function deleteEvent(id: FormData) {
     const eventId = id.get('id') as string;
 
     try {
