@@ -1,6 +1,6 @@
 {
     "source": {
-        "include": ["src"],
+        "include": ["client/src"],
         "includePattern": ".(ts|tsx)$",
         "exclude": ["node_modules"]
     },
@@ -10,7 +10,7 @@
         "presets": ["@babel/preset-env", "@babel/preset-typescript"]
     },
     "opts": {
-        "destination": "../docs",
+        "destination": "./docs",
         "recurse": true
     }
 }

@@ -37,6 +37,8 @@
     "@babel/preset-env": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@jest/globals": "^29.7.0",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.6.6",
     "@testing-library/react": "^16.0.0",
     "@types/chai": "^4.3.16",
     "@types/cors": "^2.8.17",
