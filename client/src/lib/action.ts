@@ -4,6 +4,23 @@ import { revalidatePath } from "next/cache";
 import { connectToDatabase } from "./db";
 
 /**
+ * Get all events.
+ * 
+ * @returns The events.
+ */
+export async function getEvents() {
+    await connectToDatabase();
+
+    try {
+        const data = await Event.find();
+        return JSON.parse(JSON.stringify(data));
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
+}
+
+/**
  * Create a new event.
  * 
  * @param formData - The form data.

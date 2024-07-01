@@ -3,7 +3,7 @@ import React from 'react';
 import Map from '../../components/Map';
 import EventCard from "@/components/EventCard";
 import EventForm from "@/components/EventForm";
-import { getEvents } from "@/components/EventFetch";
+import { getEvents } from "@/lib/action";
 
 /**
  * Events page.
