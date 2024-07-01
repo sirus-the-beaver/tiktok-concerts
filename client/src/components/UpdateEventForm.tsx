@@ -1,6 +1,7 @@
 'use client';
 import { updateEvent } from '@/lib/action';
-import React, { useRef } from 'react';
+import React, { use, useRef } from 'react';
+import { redirect } from 'next/navigation';
 
 /**
  * Update event form component.
@@ -20,13 +21,24 @@ export default function UpdateEventForm({eventId}: {eventId: string}) {
         borderRadius: '5px',
     };
 
+    /** 
+     * Handle the form submission.
+     * 
+     * @param FormData - The form data.
+     * 
+     * @returns The updated event.
+    */
+    const actionHandler = async (FormData: any) => {
+        ref.current?.reset();
+        await updateEvent(FormData);
+
+        redirect('/events');
+    }
+
     return (
         <div>
             <h2 className='text-2xl font-bold'>Update Event</h2>
-            <form className='space-y-4' ref={ref} action={async (FormData) => {
-                ref.current?.reset();
-                await updateEvent(FormData);
-            }}>
+            <form className='space-y-4' ref={ref} action={actionHandler}>
                 <input hidden type="text" name="id" id='id' defaultValue={eventId}/>
                 <div>
                     <label htmlFor="title" className='block text-sm font-medium text-gray-700'>Title</label>
