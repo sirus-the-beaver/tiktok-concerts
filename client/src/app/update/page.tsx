@@ -18,7 +18,6 @@ export default function Update() {
     return (
       <div>
         <main className='container mx-auto px-4'>
-          <h1 className='text-4xl font-bold my-4'>Update Event</h1>
           <UpdateEventForm eventId={eventId}/>
         </main>
       </div>

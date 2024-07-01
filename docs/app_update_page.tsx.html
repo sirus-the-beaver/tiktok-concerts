@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/EventCard.tsx</title>
+    <title>JSDoc: Source: app/update/page.tsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/EventCard.tsx</h1>
+    <h1 class="page-title">Source: app/update/page.tsx</h1>
 
     
 
@@ -26,47 +26,31 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react';
-import { deleteEvent } from "@/lib/action";
-import Event from "@/models/Event";
+            <pre class="prettyprint source linenums"><code>'use client'
+import React from 'react';
+import UpdateEventForm from '@/components/UpdateEventForm';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 /**
- * Get all events.
+ * Update page.
  * 
- * @returns All events.
+ * @returns {JSX.Element} Update page.
  */
-export default async function GetEvents() {
-    try {
-        // Get all events
-        const events = await Event.find();
-        if (events.length === 0) {
-            return &lt;h1>No Events&lt;/h1>;
-        } else {
-            return (
-                &lt;div>
-                    {events.map((event: any) => (
-                        &lt;div key={event._id}>
-                            &lt;h3>{event.title as string}&lt;/h3>
-                            &lt;p>{event.description as string}&lt;/p>
-                            &lt;p>{event.date as string}&lt;/p>
-                            &lt;p>{event.location as string}&lt;/p>
-                            &lt;form action={deleteEvent}>
-                                &lt;input hidden type="text" name="id" defaultValue={event._id.toString()}/>
-                                &lt;button className='border rounded p-2 bg-red-400'>Delete&lt;/button>
-                            &lt;/form>
-                            &lt;form action="/update">
-                                &lt;input hidden type="text" name="id" defaultValue={event._id.toString()}/>
-                                &lt;button className='border rounded p-2 bg-blue-400'>Update&lt;/button>
-                            &lt;/form>
-                        &lt;/div>
-                    ))}
-                &lt;/div>
-            );
-        }
-    } catch (error) {
-        console.log(error);
-    }
-};</code></pre>
+export default function Update() {
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+
+    const eventId = searchParams.get('id') as string;
+
+    return (
+      &lt;div>
+        &lt;main className='container mx-auto px-4'>
+          &lt;UpdateEventForm eventId={eventId}/>
+        &lt;/main>
+      &lt;/div>
+    );
+  }</code></pre>
         </article>
     </section>
 
