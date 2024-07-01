@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+// Metadata for the layout.
+export const metadata: Metadata = {
+  title: 'Events',
+  description: 'View upcoming events on TikTok Concerts.',
+};
 
 /**
  * EventLayout component

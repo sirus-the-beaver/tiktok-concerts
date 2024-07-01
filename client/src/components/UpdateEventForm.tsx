@@ -1,6 +1,6 @@
 'use client';
 import { updateEvent } from '@/lib/action';
-import React, { use, useRef } from 'react';
+import React, { useRef } from 'react';
 import { redirect } from 'next/navigation';
 
 /**

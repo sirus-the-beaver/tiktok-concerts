@@ -1,4 +1,11 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+// Metadata for the layout.
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Learn more about the TikTok Concerts platform.',
+};
 
 /**
  * `AboutLayout` is a layout component that wraps the content of the about page.

@@ -1,5 +1,4 @@
 'use client'
-import Head from 'next/head';
 import React from 'react';
 import UpdateEventForm from '@/components/UpdateEventForm';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
@@ -18,10 +17,6 @@ export default function Update() {
 
     return (
       <div>
-        <Head>
-          <title>Update Event</title>
-          <meta name="description" content="Update an event." />
-        </Head>
         <main className='container mx-auto px-4'>
           <h1 className='text-4xl font-bold my-4'>Update Event</h1>
           <UpdateEventForm eventId={eventId}/>
