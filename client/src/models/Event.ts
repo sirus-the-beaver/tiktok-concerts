@@ -4,9 +4,7 @@ export interface IEvent {
     title: string;
     description: string;
     date: string;
-    location: string;
-    latitude: number;
-    longitude: number;
+    address: string;
 }
 
 export interface IEventDocument extends IEvent, Document {
@@ -22,9 +20,7 @@ const eventSchema = new mongoose.Schema<IEventDocument>(
         title: { type: String, required: true },
         description: { type: String, required: true },
         date: { type: String, required: true },
-        location: { type: String, required: true },
-        latitude: { type: Number, required: true },
-        longitude: { type: Number, required: true }
+        address: { type: String, required: true },
     },
     { timestamps: true }
 );

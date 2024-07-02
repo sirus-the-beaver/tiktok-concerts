@@ -35,9 +35,7 @@ export async function createEvent(formData: FormData) {
     const title = formData.get('title') as string;
     const description = formData.get('description') as string;
     const date = formData.get('date') as string;
-    const location = formData.get('location') as string;
-    const latitude = formData.get('latitude');
-    const longitude = formData.get('longitude');
+    const address = formData.get('address') as string;
 
     try {
         // Create a new event
@@ -45,9 +43,7 @@ export async function createEvent(formData: FormData) {
             title,
             description,
             date,
-            location,
-            latitude,
-            longitude
+            address
         });
 
         newEvent.save();
@@ -93,9 +89,7 @@ export async function updateEvent(formData: FormData) {
     const formerTitle = event?.title;
     const formerDescription = event?.description;
     const formerDate = event?.date;
-    const formerLocation = event?.location;
-    const formerLatitude = event?.latitude;
-    const formerLongitude = event?.longitude;
+    const formerAddress = event?.address;
 
     try {
         await Event.updateOne({ _id: eventId },
@@ -103,9 +97,7 @@ export async function updateEvent(formData: FormData) {
                 title: formData.get('title') === '' ? formerTitle : formData.get('title'),
                 description: formData.get('description') === '' ? formerDescription : formData.get('description'),
                 date: formData.get('date') === '' ? formerDate : formData.get('date'),
-                location: formData.get('location') === '' ? formerLocation : formData.get('location'),
-                latitude: formData.get('latitude') === '' ? formerLatitude : formData.get('latitude'),
-                longitude: formData.get('longitude') === '' ? formerLongitude : formData.get('longitude')
+                address: formData.get('address') === '' ? formerAddress : formData.get('address'),
             }
         );
         revalidatePath('/events');

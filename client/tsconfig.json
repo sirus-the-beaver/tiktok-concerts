@@ -27,7 +27,7 @@
       ]
     },
     "typeRoots": [
-      "./node_modules/@types",
+      "node_modules/@types",
       "node_modules/@testing-library",
       "./src/types"
     ],
@@ -35,7 +35,8 @@
       "jest",
       "node",
       "react",
-      "react-dom"
+      "react-dom",
+      "google.maps"
     ],
     "target": "es2017"
   },

@@ -1,16 +1,11 @@
 "use client";
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { Event } from '@/types/event';
 
 const mapContainerStyle = {
     width: '100%',
     height: '400px'
-};
-
-const center = {
-    lat: 0,
-    lng: 0
 };
 
 // Map component props
@@ -25,15 +20,47 @@ interface MapProps {
  * @returns {JSX.Element} Map component.
  */
 export default function Map({ events }: MapProps) {
-    // Get the center of the map
-    // If there are events, use the first event's location
-    // Otherwise, use the default center
-    const mapCenter = events.length ? { lat: events[0].latitude, lng: events[0].longitude } : center;
+    let geocoder: google.maps.Geocoder;
+    const [geocodedEvents, setGeocodedEvents] = useState(events);
+
+    /**
+     * Geocode the events.
+     * 
+     * @returns {void}
+     * @throws {Error} Geocoding failed for address.
+     * @returns {Promise<Event[]>} The geocoded events.
+     */
+    const geocode = useCallback(() => {
+        geocoder = new google.maps.Geocoder();
+
+        // Geocode the events
+        const geocodePromises: Promise<Event>[] = events.map(event => new Promise((resolve, reject) => {
+            geocoder.geocode({ address: event.address }, (results, status) => {
+                if (status === 'OK' && results !== null) {
+                    event.latitude = results[0].geometry.location.lat().toString();
+                    event.longitude = results[0].geometry.location.lng().toString();
+                    resolve(event);
+                } else {
+                    reject(new Error(`Geocoding failed for address: ${event.address}`));
+                }
+            });
+        }));
+        // Set the geocoded events
+        Promise.all(geocodePromises)
+            .then(geocodedEvents => setGeocodedEvents(geocodedEvents))
+            .catch(error => console.error(error));
+    }, [events]);
+
     return (
-        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
-            <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={12}>
-                {events.map(event => (
-                    <Marker key={event._id} position={{ lat: event.latitude, lng: event.longitude }} />
+        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!} onLoad={geocode}>
+            <GoogleMap mapContainerStyle={mapContainerStyle} center={
+                {
+                    lat: parseFloat(geocodedEvents[0].latitude) || 0,
+                    lng: parseFloat(geocodedEvents[0].longitude) || 0
+                }
+            } zoom={12} onLoad={geocode}>
+                {geocodedEvents.map(event => (
+                    <Marker key={event._id} position={{ lat: parseFloat(event.latitude), lng: parseFloat(event.longitude) }} />
                 ))}
             </GoogleMap>
         </LoadScript>

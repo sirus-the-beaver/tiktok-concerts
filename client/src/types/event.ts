@@ -3,16 +3,7 @@ export interface Event {
     title: string;
     description: string;
     date: string;
-    location: string;
-    latitude: number;
-    longitude: number;
-}
-
-export interface EventInput {
-    title: string;
-    description: string;
-    date: string;
-    location: string;
-    latitude: number;
-    longitude: number;
+    address: string;
+    latitude: string;
+    longitude: string;
 }

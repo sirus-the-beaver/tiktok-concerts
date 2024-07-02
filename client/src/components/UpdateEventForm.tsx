@@ -53,16 +53,8 @@ export default function UpdateEventForm({eventId}: {eventId: string}) {
                     <input type="date" name="date" id='date' style={inputStyle} />
                 </div>
                 <div>
-                    <label htmlFor="location" className='block text-sm font-medium text-gray-700'>Location</label>
-                    <input type="text" name="location" id='location' style={inputStyle} />
-                </div>
-                <div>
-                    <label htmlFor="latitude" className='block text-sm font-medium text-gray-700'>Latitude</label>
-                    <input type="number" name="latitude" id='latitude' style={inputStyle} />
-                </div>
-                <div>
-                    <label htmlFor="longitude" className='block text-sm font-medium text-gray-700'>Longitude</label>
-                    <input type="number" name="longitude" id='longitude' style={inputStyle} />
+                    <label htmlFor="address" className='block text-sm font-medium text-gray-700'>Address</label>
+                    <input type="text" name="address" id='address' style={inputStyle} />
                 </div>
                 <button type='submit' className='inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'>Update</button>
             </form>
