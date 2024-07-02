@@ -17,7 +17,7 @@ export default function Update() {
 
     return (
       <div>
-        <main className='container mx-auto px-4'>
+        <main className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
           <UpdateEventForm eventId={eventId}/>
         </main>
       </div>

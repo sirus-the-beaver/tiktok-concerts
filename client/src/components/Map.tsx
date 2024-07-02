@@ -5,7 +5,7 @@ import { Event } from '@/types/event';
 
 const mapContainerStyle = {
     width: '100%',
-    height: '400px'
+    height: '100%'
 };
 
 // Map component props
@@ -54,16 +54,18 @@ export default function Map({ events }: MapProps) {
 
     return (
         <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!} onLoad={geocode}>
-            <GoogleMap mapContainerStyle={mapContainerStyle} center={
-                {
-                    lat: parseFloat(geocodedEvents[0].latitude) || 0,
-                    lng: parseFloat(geocodedEvents[0].longitude) || 0
-                }
-            } zoom={12} onLoad={geocode}>
-                {geocodedEvents.map(event => (
-                    <Marker key={event._id} position={{ lat: parseFloat(event.latitude), lng: parseFloat(event.longitude) }} />
-                ))}
-            </GoogleMap>
+            <div className='w-full h-64 sm:h-96 md:h-128 lg:h-screen'>
+                <GoogleMap mapContainerStyle={mapContainerStyle} center={
+                    {
+                        lat: parseFloat(geocodedEvents[0].latitude) || 0,
+                        lng: parseFloat(geocodedEvents[0].longitude) || 0
+                    }
+                } zoom={12} onLoad={geocode}>
+                    {geocodedEvents.map(event => (
+                        <Marker key={event._id} position={{ lat: parseFloat(event.latitude), lng: parseFloat(event.longitude) }} />
+                    ))}
+                </GoogleMap>
+            </div>
         </LoadScript>
     );
 }

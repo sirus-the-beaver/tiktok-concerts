@@ -21,7 +21,7 @@ export default function AboutLayout({
     children: React.ReactNode;
   }>) {
     return (
-      <section>
+      <section className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
         {children}
       </section>
     );
