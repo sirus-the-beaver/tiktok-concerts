@@ -35,7 +35,8 @@ export default function Map({ events }: MapProps) {
 
         // Geocode the events
         const geocodePromises: Promise<Event>[] = events.map(event => new Promise((resolve, reject) => {
-            geocoder.geocode({ address: event.address }, (results, status) => {
+            const address = `${event.address}, ${event.city}, ${event.state} ${event.zip}`;
+            geocoder.geocode({ address: address }, (results, status) => {
                 if (status === 'OK' && results !== null) {
                     event.latitude = results[0].geometry.location.lat().toString();
                     event.longitude = results[0].geometry.location.lng().toString();

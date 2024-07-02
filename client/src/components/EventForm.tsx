@@ -44,6 +44,18 @@ export default function EventForm() {
                     <label htmlFor="address" className='block text-sm font-medium text-gray-700'>Address</label>
                     <input type="text" name="address" id='address' style={inputStyle} required />
                 </div>
+                <div>
+                    <label htmlFor="city" className='block text-sm font-medium text-gray-700'>City</label>
+                    <input type="text" name="city" id='city' style={inputStyle} required />
+                </div>
+                <div>
+                    <label htmlFor="state" className='block text-sm font-medium text-gray-700'>State</label>
+                    <input type="text" name="state" id='state' style={inputStyle} required />
+                </div>
+                <div>
+                    <label htmlFor="zip" className='block text-sm font-medium text-gray-700'>Zip</label>
+                    <input type="text" name="zip" id='zip' style={inputStyle} required />
+                </div>
                 <button type='submit' className='inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'>Submit</button>
             </form>
         </div>

@@ -4,6 +4,9 @@ export interface Event {
     description: string;
     date: string;
     address: string;
+    city: string;
+    state: string;
+    zip: string;
     latitude: string;
     longitude: string;
 }

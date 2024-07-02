@@ -22,6 +22,9 @@ export default async function GetEvents() {
                             <p>{event.description as string}</p>
                             <p>{event.date as string}</p>
                             <p>{event.address as string}</p>
+                            <p>{event.city as string}</p>
+                            <p>{event.state as string}</p>
+                            <p>{event.zip as string}</p>
                             <form action={deleteEvent}>
                                 <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
                                 <button className='border rounded p-2 bg-red-400'>Delete</button>
