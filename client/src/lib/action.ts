@@ -36,6 +36,9 @@ export async function createEvent(formData: FormData) {
     const description = formData.get('description') as string;
     const date = formData.get('date') as string;
     const address = formData.get('address') as string;
+    const city = formData.get('city') as string;
+    const state = formData.get('state') as string;
+    const zip = formData.get('zip') as string;
 
     try {
         // Create a new event
@@ -43,7 +46,10 @@ export async function createEvent(formData: FormData) {
             title,
             description,
             date,
-            address
+            address,
+            city,
+            state,
+            zip
         });
 
         newEvent.save();
@@ -90,6 +96,9 @@ export async function updateEvent(formData: FormData) {
     const formerDescription = event?.description;
     const formerDate = event?.date;
     const formerAddress = event?.address;
+    const formerCity = event?.city;
+    const formerState = event?.state;
+    const formerZip = event?.zip;
 
     try {
         await Event.updateOne({ _id: eventId },
@@ -98,6 +107,9 @@ export async function updateEvent(formData: FormData) {
                 description: formData.get('description') === '' ? formerDescription : formData.get('description'),
                 date: formData.get('date') === '' ? formerDate : formData.get('date'),
                 address: formData.get('address') === '' ? formerAddress : formData.get('address'),
+                city: formData.get('city') === '' ? formerCity : formData.get('city'),
+                state: formData.get('state') === '' ? formerState : formData.get('state'),
+                zip: formData.get('zip') === '' ? formerZip : formData.get('zip')
             }
         );
         revalidatePath('/events');
