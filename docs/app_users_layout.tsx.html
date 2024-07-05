@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: app/about/page.tsx</title>
+    <title>JSDoc: Source: app/users/layout.tsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: app/about/page.tsx</h1>
+    <h1 class="page-title">Source: app/users/layout.tsx</h1>
 
     
 
@@ -26,24 +26,33 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>'use client';
-import React from 'react';
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import type { Metadata } from 'next';
+
+// Metadata for the layout.
+export const metadata: Metadata = {
+  title: 'Users',
+  description: 'View upcoming events on TikTok Concerts.',
+};
 
 /**
- * About page.
+ * UsersLayout component
  * 
- * @returns {JSX.Element} About page.
+ * @param children - The content to be rendered within the layout.
+ *
+ * @returns The layout component.
  */
-export default function About() {
-  return (
-    &lt;div>
-      &lt;main className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
-        &lt;h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold my-4'>About TikTok Concerts&lt;/h1>
-        &lt;p className='text-sm sm:text-base md:text-lg lg:text-xl'>Watch your favorite artists perform live on TikTok.&lt;/p>
-      &lt;/main>
-    &lt;/div>
-  );
-}</code></pre>
+export default function UsersLayout({
+    children,
+  }: Readonly&lt;{
+    children: React.ReactNode;
+  }>) {
+    return (
+      &lt;section className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
+        {children}
+      &lt;/section>
+    );
+  }</code></pre>
         </article>
     </section>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { connectToDatabase } from "@/lib/db";
 import React from "react";
+import Link from "next/link";
 
 // Metadata for the layout.
 export const metadata: Metadata = {
@@ -16,24 +17,25 @@ export const metadata: Metadata = {
  * 
  * @returns The layout component.
  */
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  connectToDatabase();
-  return (
-    <html lang="en">
-    <body>
-        <nav className="bg-blue-800 p-4">
-          <ul className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/events">Events</a></li>
-          </ul>
-        </nav>
-        {children}
-      </body>
-    </html>
-  );
+  }: Readonly<{
+    children: React.ReactNode;
+  }>) {
+    connectToDatabase();
+    return (
+      <html lang="en">
+      <body>
+          <nav className="bg-blue-800 p-4">
+            <ul className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/events">Events</Link></li>
+              <li><Link href="/users">Users</Link></li>
+            </ul>
+          </nav>
+          {children}
+        </body>
+      </html>
+    );
 }
