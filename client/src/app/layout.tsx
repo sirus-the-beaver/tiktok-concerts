@@ -32,6 +32,7 @@ export default async function RootLayout({
               <li><Link href="/about">About</Link></li>
               <li><Link href="/events">Events</Link></li>
               <li><Link href="/users">Users</Link></li>
+              <li><Link href="/artists">Artists</Link></li>
             </ul>
           </nav>
           {children}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: app/users/layout.tsx</title>
+    <title>JSDoc: Source: app/artists/layout.tsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: app/users/layout.tsx</h1>
+    <h1 class="page-title">Source: app/artists/layout.tsx</h1>
 
     
 
@@ -31,18 +31,18 @@ import type { Metadata } from 'next';
 
 // Metadata for the layout.
 export const metadata: Metadata = {
-  title: 'Users',
-  description: 'View upcoming events on TikTok Concerts.',
+  title: 'Artists',
+  description: 'Add new events, update existing events, and delete events.',
 };
 
 /**
- * UsersLayout component
+ * ArtistsLayout component
  * 
  * @param children - The content to be rendered within the layout.
- *
+ * 
  * @returns The layout component.
  */
-export default function UsersLayout({
+export default function ArtistsLayout({
     children,
   }: Readonly&lt;{
     children: React.ReactNode;
