@@ -1,6 +1,6 @@
-"use client";
+'use client'
 import React, { useCallback, useState } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, Marker, useJsApiLoader} from '@react-google-maps/api';
 import { Event } from '@/types/event';
 
 const mapContainerStyle = {
@@ -48,24 +48,30 @@ export default function Map({ events }: MapProps) {
         }));
         // Set the geocoded events
         Promise.all(geocodePromises)
-            .then(geocodedEvents => setGeocodedEvents(geocodedEvents))
+            .then(geocodedEvents => {
+                setGeocodedEvents(geocodedEvents);
+            })
             .catch(error => console.error(error));
     }, [events]);
 
+    // Load the Google Maps API
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
+    })
+    
     return (
-        <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!} onLoad={geocode}>
-            <div className='w-full h-64 sm:h-96 md:h-128 lg:h-screen'>
-                <GoogleMap mapContainerStyle={mapContainerStyle} center={
-                    {
-                        lat: parseFloat(geocodedEvents[0].latitude) || 0,
-                        lng: parseFloat(geocodedEvents[0].longitude) || 0
-                    }
-                } zoom={12} onLoad={geocode}>
-                    {geocodedEvents.map(event => (
-                        <Marker key={event._id} position={{ lat: parseFloat(event.latitude), lng: parseFloat(event.longitude) }} />
-                    ))}
-                </GoogleMap>
-            </div>
-        </LoadScript>
+        <div className='w-full h-64 sm:h-96 md:h-128 lg:h-256'>
+            {isLoaded && <GoogleMap mapContainerStyle={mapContainerStyle} center={
+                {
+                    lat: parseFloat(geocodedEvents[0].latitude) || 0,
+                    lng: parseFloat(geocodedEvents[0].longitude) || 0
+                }
+            } zoom={12} onLoad={geocode}>
+                {geocodedEvents.map(event => (
+                    <Marker key={event._id} position={{ lat: parseFloat(event.latitude), lng: parseFloat(event.longitude) }} />
+                ))}
+            </GoogleMap>}
+        </div>
     );
 }

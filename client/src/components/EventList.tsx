@@ -14,13 +14,13 @@ export default async function GetEvents() {
             return <h1>No Events</h1>;
         } else {
             return (
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                <div className='grid grid-rows-1 md:grid-rows-2 lg:grid-rows-3 gap-5'>
                     {events.map((event: any) => (
-                        <div key={event._id} className='p-4 border rounded shadow-md'>
-                            <h3 className='text-lg md:text-xl lg:text-2xl font-bold'>{event.title as string}</h3>
-                            <p className='text-sm md:text-base lg:text-lg'>{event.description as string}</p>
-                            <p className='text-sm md:text-base lg:text-lg'>{event.date as string}</p>
-                            <p className='text-sm md:text-base lg:text-lg'>{event.address as string}</p>
+                        <div key={event._id} className='p-5 border rounded shadow-md'>
+                            <h3 className='text-lg text-center md:text-xl lg:text-2xl font-bold'>{event.title as string}</h3>
+                            <p className='text-sm md:text-base lg:text-lg'><b>Description:</b> {event.description as string}</p>
+                            <p className='text-sm md:text-base lg:text-lg'><b>Date:</b> {event.date as string}</p>
+                            <p className='text-sm md:text-base lg:text-lg'><b>Address:</b> {event.address as string}</p>
                             <p className='text-sm md:text-base lg:text-lg'>{event.city as string}</p>
                             <p className='text-sm md:text-base lg:text-lg'>{event.state as string}</p>
                             <p className='text-sm md:text-base lg:text-lg'>{event.zip as string}</p>
