@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from '../../components/Map';
-import EventCard from "@/components/EventCard";
+import EventList from "@/components/EventList";
 import { getEvents } from "@/lib/action";
 
 /**
@@ -19,7 +19,7 @@ export default async function Users() {
             <Map events={events}/>
             <p className='text-sm sm:text-base md:text-lg lg:text-xl'>Check out our upcoming events.</p>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                <EventCard />
+                <EventList />
             </div>
             </main>
         </div>

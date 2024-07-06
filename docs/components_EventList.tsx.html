@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: app/users/layout.tsx</title>
+    <title>JSDoc: Source: components/EventList.tsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: app/users/layout.tsx</h1>
+    <h1 class="page-title">Source: components/EventList.tsx</h1>
 
     
 
@@ -27,32 +27,40 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import type { Metadata } from 'next';
-
-// Metadata for the layout.
-export const metadata: Metadata = {
-  title: 'Users',
-  description: 'View upcoming events on TikTok Concerts.',
-};
+import Event from "@/models/Event";
 
 /**
- * UsersLayout component
+ * Get all events.
  * 
- * @param children - The content to be rendered within the layout.
- *
- * @returns The layout component.
+ * @returns All events.
  */
-export default function UsersLayout({
-    children,
-  }: Readonly&lt;{
-    children: React.ReactNode;
-  }>) {
-    return (
-      &lt;section className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
-        {children}
-      &lt;/section>
-    );
-  }</code></pre>
+export default async function GetEvents() {
+    try {
+        // Get all events
+        const events = await Event.find();
+        if (events.length === 0) {
+            return &lt;h1>No Events&lt;/h1>;
+        } else {
+            return (
+                &lt;div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                    {events.map((event: any) => (
+                        &lt;div key={event._id} className='p-4 border rounded shadow-md'>
+                            &lt;h3 className='text-lg md:text-xl lg:text-2xl font-bold'>{event.title as string}&lt;/h3>
+                            &lt;p className='text-sm md:text-base lg:text-lg'>{event.description as string}&lt;/p>
+                            &lt;p className='text-sm md:text-base lg:text-lg'>{event.date as string}&lt;/p>
+                            &lt;p className='text-sm md:text-base lg:text-lg'>{event.address as string}&lt;/p>
+                            &lt;p className='text-sm md:text-base lg:text-lg'>{event.city as string}&lt;/p>
+                            &lt;p className='text-sm md:text-base lg:text-lg'>{event.state as string}&lt;/p>
+                            &lt;p className='text-sm md:text-base lg:text-lg'>{event.zip as string}&lt;/p>
+                        &lt;/div>
+                    ))}
+                &lt;/div>
+            );
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};</code></pre>
         </article>
     </section>
 
