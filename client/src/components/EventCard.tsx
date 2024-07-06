@@ -25,13 +25,13 @@ export default async function GetEvents() {
                             <p className='text-sm md:text-base lg:text-lg'>{event.city as string}</p>
                             <p className='text-sm md:text-base lg:text-lg'>{event.state as string}</p>
                             <p className='text-sm md:text-base lg:text-lg'>{event.zip as string}</p>
-                            <form action={deleteEvent}>
+                            <form action={deleteEvent} className='m-4'>
                                 <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
-                                <button className='hover:bg-gradient-to-r from-splash to-razzmatazz hover:text-black w-1/4 border rounded p-2 bg-red-400'>Delete</button>
+                                <button className='hover:bg-gradient-to-r from-splash to-razzmatazz hover:text-black inline-flex justify-center py-2 px-4 sm:px-6 md:px-8 lg:px-10 border border-transparent shadow-sm text-sm sm:text-base md:text-lg lg:text-xl font-medium rounded-md text-white'>Delete</button>
                             </form>
-                            <form action="/update">
+                            <form action="/update" className='m-4'>
                                 <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
-                                <button className='hover:bg-gradient-to-r from-splash to-razzmatazz hover:text-black w-1/4 border rounded p-2 bg-blue-400 mt-2'>Update</button>
+                                <button className='hover:bg-gradient-to-r from-splash to-razzmatazz hover:text-black inline-flex justify-center py-2 px-4 sm:px-6 md:px-8 lg:px-10 border border-transparent shadow-sm text-sm sm:text-base md:text-lg lg:text-xl font-medium rounded-md text-white'>Update</button>
                             </form>
                         </div>
                     ))}
