@@ -26,13 +26,12 @@ export default async function RootLayout({
     return (
       <html lang="en">
       <body>
-          <nav className="bg-blue-800 p-4">
-            <ul className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/events">Events</Link></li>
-              <li><Link href="/users">Users</Link></li>
-              <li><Link href="/artists">Artists</Link></li>
+          <nav className="bg-gradient-to-r from-splash to-razzmatazz p-4">
+            <ul className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center justify-center gap-20">
+              <li><Link href="/" className="text-black hover:underline">Home</Link></li>
+              <li><Link href="/about" className="text-black hover:underline">About</Link></li>
+              <li><Link href="/users" className="text-black hover:underline">Users</Link></li>
+              <li><Link href="/artists" className="text-black hover:underline">Artists</Link></li>
             </ul>
           </nav>
           {children}
