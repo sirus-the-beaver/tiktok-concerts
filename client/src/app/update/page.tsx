@@ -16,10 +16,8 @@ export default function Update() {
     const eventId = searchParams.get('id') as string;
 
     return (
-      <div>
-        <main className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
-          <UpdateEventForm eventId={eventId}/>
-        </main>
+      <div className='m-4'>
+        <UpdateEventForm eventId={eventId}/>
       </div>
     );
   }

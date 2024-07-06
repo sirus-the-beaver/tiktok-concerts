@@ -37,7 +37,7 @@ export default function UpdateEventForm({eventId}: {eventId: string}) {
 
     return (
         <div className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
-            <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold'>Update Event</h2>
+            <h2 className='text-center m-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold'>Update Event</h2>
             <form className='space-y-4' ref={ref} action={actionHandler}>
                 <input hidden type="text" name="id" id='id' defaultValue={eventId}/>
                 <div>
@@ -68,7 +68,7 @@ export default function UpdateEventForm({eventId}: {eventId: string}) {
                     <label htmlFor="zip" className='block text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-700'>Zip</label>
                     <input type="text" name="zip" id='zip' style={inputStyle} />
                 </div>
-                <button type='submit' className='inline-flex justify-center py-2 px-4 sm:px-6 md:px-8 lg:px-10 border border-transparent shadow-sm text-sm sm:text-base md:text-lg lg:text-xl font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700'>Update</button>            </form>
+                <button type='submit' className='hover:bg-gradient-to-r from-splash to-razzmatazz hover:text-black inline-flex justify-center py-2 px-4 sm:px-6 md:px-8 lg:px-10 border border-transparent shadow-sm text-sm sm:text-base md:text-lg lg:text-xl font-medium rounded-md text-white'>Update</button>            </form>
         </div>
     )
 }

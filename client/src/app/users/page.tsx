@@ -15,7 +15,9 @@ export default async function Users() {
     return (
         <div className='flex-row'>
             <h1 className='text-2xl text-center sm:text-3xl md:text-4xl lg:text-5xl font-bold my-4'>Upcoming Events</h1>
-            <Map events={events}/>
+            <div className='m-4'>
+                <Map events={events}/>
+            </div>
             <EventList />
         </div>
     );

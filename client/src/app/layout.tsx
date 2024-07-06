@@ -28,10 +28,10 @@ export default async function RootLayout({
       <body>
           <nav className="bg-gradient-to-r from-splash to-razzmatazz p-4">
             <ul className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center justify-center gap-20">
-              <li><Link href="/" className="text-black hover:underline">Home</Link></li>
-              <li><Link href="/about" className="text-black hover:underline">About</Link></li>
-              <li><Link href="/users" className="text-black hover:underline">Users</Link></li>
-              <li><Link href="/artists" className="text-black hover:underline">Artists</Link></li>
+              <li><Link href="/" className="font-bold text-black hover:underline">Home</Link></li>
+              <li><Link href="/about" className="font-bold text-black hover:underline">About</Link></li>
+              <li><Link href="/users" className="font-bold text-black hover:underline">Users</Link></li>
+              <li><Link href="/artists" className="font-bold text-black hover:underline">Artists</Link></li>
             </ul>
           </nav>
           {children}
