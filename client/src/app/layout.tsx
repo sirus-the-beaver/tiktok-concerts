@@ -34,6 +34,9 @@ export default async function RootLayout({
           </main>
 
           <footer className="h-10 text-center">
+            <p>
+            Disclaimer: This project, TikTok Concerts, is not officially affiliated with, endorsed by, or sponsored by TikTok. All trademarks and copyrights are the property of their respective owners.
+            </p>
             <p>&copy; 2024 Sirus Salari. All rights reserved</p>
           </footer>
         </div>
