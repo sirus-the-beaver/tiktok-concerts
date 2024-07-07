@@ -32,8 +32,8 @@ export default function Header () {
                 <nav className={`hidden lg:flex space-x-4`}>
                     <Link href="/" className="hover:underline font-bold p-2">Home</Link>
                     <Link href="/about" className="hover:underline font-bold p-2">About</Link>
-                    <Link href="/services" className="hover:underline font-bold p-2">Services</Link>
-                    <Link href="/contact" className="hover:underline font-bold p-2">Contact</Link>
+                    <Link href="/users" className="hover:underline font-bold p-2">Users</Link>
+                    <Link href="/artists" className="hover:underline font-bold p-2">Artists</Link>
                     <Link target="_blank" href="https://github.com/sirus-the-beaver/tiktok-concerts" className="hover:underline font-bold p-2">GitHub Repo</Link>
                 </nav>
             </div>
