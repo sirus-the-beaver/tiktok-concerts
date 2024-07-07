@@ -27,6 +27,7 @@ export default function Header () {
                     <Link href="/about" className="hover:underline font-bold p-2">About</Link>
                     <Link href="/services" className="hover:underline font-bold p-2">Services</Link>
                     <Link href="/contact" className="hover:underline font-bold p-2">Contact</Link>
+                    <Link target="_blank" href="https://github.com/sirus-the-beaver/tiktok-concerts" className="hover:underline font-bold p-2">GitHub Repo</Link>
                 </nav>
             </div>
             {isOpen && (
@@ -36,6 +37,7 @@ export default function Header () {
                         <li><Link href="/about" className="hover:underline font-bold block p-2">About</Link></li>
                         <li><Link href="/users" className="hover:underline font-bold block p-2">Users</Link></li>
                         <li><Link href="/artists" className="hover:underline font-bold block p-2">Artists</Link></li>
+                        <li><Link target="_blank" href="https://github.com/sirus-the-beaver/tiktok-concerts" className="hover:underline font-bold block p-2">GitHub Repo</Link></li>
                     </ul>
                 </nav>
             )}

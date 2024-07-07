@@ -12,7 +12,7 @@ export default function About() {
       <main className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
         <section>
           <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold my-4'>About TikTok Concerts</h1>
-          <p className='text-sm sm:text-base md:text-lg lg:text-xl'>TikTok Concerts was conceived during the TechJam hackathon, aiming to revolutionize the live streaming concert experience on TikTok Live. Our mission is to bridge the gap between artists and their audiences, making live performances more interactive and accessible.</p>
+          <p className='text-sm sm:text-base md:text-lg lg:text-xl'>TikTok Concerts was conceived for the TikTok TechJam hackathon, aiming to revolutionize the live streaming concert experience on TikTok Live. Our mission is to bridge the gap between artists and their audiences, making live performances more interactive and accessible.</p>
         </section>
     
         <section>
