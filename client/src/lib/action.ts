@@ -75,7 +75,7 @@ export async function deleteEvent(id: FormData) {
 
     try {
         await Event.deleteOne({ _id: eventId });
-        revalidatePath('/events');
+        revalidatePath('/artists');
         return (`Successfully deleted event with id ${eventId}`);
     } catch (error) {
         return {message: 'Failed to delete event'};
