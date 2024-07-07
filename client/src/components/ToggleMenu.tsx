@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 
@@ -10,10 +11,16 @@ import Link from 'next/link';
  */
 export default function Header () {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    // Close the menu when the path changes
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
 
     return (
         <header className="bg-gradient-to-r from-splash to-razzmatazz text-black p-4">
