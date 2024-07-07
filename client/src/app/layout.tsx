@@ -3,8 +3,6 @@ import "./globals.css";
 import { connectToDatabase } from "@/lib/db";
 import React from "react";
 import ToggleMenu from "@/components/ToggleMenu";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from '@vercel/analytics/react';
 
 // Metadata for the layout.
 export const metadata: Metadata = {
@@ -33,8 +31,6 @@ export default async function RootLayout({
 
           <main className="mb-auto p-4 h-fit">
             {children}
-            <SpeedInsights />
-            <Analytics />
           </main>
 
           <footer className="h-10 text-center">
