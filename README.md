@@ -15,17 +15,12 @@ Welcome to the TikTok Concerts project! This project is part of the TechJam hack
 
 ## Introduction
 
-TikTok Concerts is designed to improve the experience of watching live concerts on TikTok Live. It provides several features to help artists and users connect more easily. The core functionality includes:
-
-- Scheduling public events
-- Displaying a map of events happening around the world
-- Notifying users about nearby events
+TikTok Concerts is designed to improve the experience of watching live concerts on TikTok Live. It provides several features to help artists and users connect more easily.
 
 ## Features
 
 - **Event Scheduling:** Artists can schedule their live performances and make them publicly available.
 - **Global Events Map:** A dyanmic map showing all scheduled events worldwide.
-- **User Notification:** Users receive notifications for events happening nearby.
 
 ## Tech Stack
 
@@ -70,9 +65,9 @@ To set up the project locally, follow these steps:
 
 ## Usage
 
-- Navigate to /events to see a list of upcoming events
-- Use the map feature to explore events happening around the world
-- Sign up for notifications to get alerts about nearby events
+- Navigate to /users to see a list of upcoming events and a map of where events are located
+- Navigate to /artists to create new events, update events, or delete events
+
 
 ## Documentation
 

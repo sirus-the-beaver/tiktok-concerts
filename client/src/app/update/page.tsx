@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { Suspense } from 'react';
 import UpdateEventForm from '@/components/UpdateEventForm';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
@@ -16,8 +16,10 @@ export default function Update() {
     const eventId = searchParams.get('id') as string;
 
     return (
-      <div className='m-4'>
-        <UpdateEventForm eventId={eventId}/>
-      </div>
+      <Suspense>
+        <div className='m-4'>
+          <UpdateEventForm eventId={eventId}/>
+        </div>
+      </Suspense>
     );
   }
