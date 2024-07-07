@@ -32,7 +32,7 @@ export default function UpdateEventForm({eventId}: {eventId: string}) {
         ref.current?.reset();
         await updateEvent(FormData);
 
-        redirect('/events');
+        redirect('/artists');
     }
 
     return (
