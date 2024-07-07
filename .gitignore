@@ -4,5 +4,3 @@ node_modules/
 client/node_modules/
 client/.next/
 client/.env.local
-client/tailwind.config.ts
-client/postcss.config.mjs
