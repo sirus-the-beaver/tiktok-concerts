@@ -27,7 +27,7 @@ export default async function GetEvents() {
                             <p className='text-sm md:text-base lg:text-lg'>{event.zip as string}</p>
                             <form action={deleteEvent} className='m-4'>
                                 <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
-                                <button className='hover:bg-gradient-to-r from-splash to-razzmatazz hover:text-black inline-flex justify-center py-2 px-4 sm:px-6 md:px-8 lg:px-10 border border-transparent shadow-sm text-sm sm:text-base md:text-lg lg:text-xl font-medium rounded-md text-white'>Delete</button>
+                                <button type="submit" className='hover:bg-gradient-to-r from-splash to-razzmatazz hover:text-black inline-flex justify-center py-2 px-4 sm:px-6 md:px-8 lg:px-10 border border-transparent shadow-sm text-sm sm:text-base md:text-lg lg:text-xl font-medium rounded-md text-white'>Delete</button>
                             </form>
                             <form action="/update" className='m-4'>
                                 <input hidden type="text" name="id" defaultValue={event._id.toString()}/>
