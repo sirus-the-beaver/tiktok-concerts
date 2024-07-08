@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { connectToDatabase } from "@/lib/db";
 import React from "react";
 import ToggleMenu from "@/components/ToggleMenu";
 
@@ -22,7 +21,6 @@ export default async function RootLayout({
   }: Readonly<{
     children: React.ReactNode;
   }>) {
-    connectToDatabase();
     return (
       <html lang="en">
       <body>

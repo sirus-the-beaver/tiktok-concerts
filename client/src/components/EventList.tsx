@@ -1,5 +1,5 @@
 import React from 'react';
-import Event from "@/models/Event";
+import { getEvents } from "@/lib/action";
 
 /**
  * Get all events.
@@ -9,7 +9,7 @@ import Event from "@/models/Event";
 export default async function GetEvents() {
     try {
         // Get all events
-        const events = await Event.find();
+        const events = await getEvents();
         if (events.length === 0) {
             return <h1>No Events</h1>;
         } else {

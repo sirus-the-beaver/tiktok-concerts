@@ -71,6 +71,7 @@ export async function createEvent(formData: FormData) {
  * @returns The deleted event.
  */
 export async function deleteEvent(id: FormData) {
+    await connectToDatabase();
     const eventId = id.get('id') as string;
 
     try {
@@ -90,6 +91,7 @@ export async function deleteEvent(id: FormData) {
  * @returns The updated event.
  */
 export async function updateEvent(formData: FormData) {
+    await connectToDatabase();
     const eventId = formData.get('id');
     const event = await Event.findOne({ _id: eventId });
     const formerTitle = event?.title;
