@@ -55,7 +55,7 @@ export async function createEvent(formData: FormData) {
         newEvent.save();
 
         // Update the events page with the new event
-        revalidatePath('/events');
+        revalidatePath('/artists');
         return newEvent.toString();
     } catch (error) {
         console.log(error);
@@ -114,7 +114,7 @@ export async function updateEvent(formData: FormData) {
                 zip: formData.get('zip') === '' ? formerZip : formData.get('zip')
             }
         );
-        revalidatePath('/events');
+        revalidatePath('/artists');
         return (`Successfully updated event with id ${eventId}`);
     } catch (error) {
         return {message: 'Failed to update event'};
