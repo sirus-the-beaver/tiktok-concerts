@@ -38,7 +38,7 @@ export default function UpdateEventForm({eventId}: {eventId: string}) {
     return (
         <div className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
             <h2 className='text-center m-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold'>Update Event</h2>
-            <form className='space-y-4' ref={ref} action={actionHandler}>
+            <form autoComplete="off" className='space-y-4' ref={ref} action={actionHandler}>
                 <input hidden type="text" name="id" id='id' defaultValue={eventId}/>
                 <div>
                     <label htmlFor="title" className='block text-sm sm:text-base md:text-lg lg:text-xl font-medium text-gray-700'>Title</label>

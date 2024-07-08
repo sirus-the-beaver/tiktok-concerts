@@ -24,7 +24,7 @@ export default function EventForm() {
     return (
         <div className='container mx-auto px-4 sm:px-8 md:px-16 lg:px-24'>
             <h2 className='text-center m-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold'>Add Event</h2>
-            <form className='space-y-4' ref={ref} action={async (FormData) => {
+            <form className='space-y-4' autoComplete="off" ref={ref} action={async (FormData) => {
                 ref.current?.reset();
                 await createEvent(FormData);
             }}>
