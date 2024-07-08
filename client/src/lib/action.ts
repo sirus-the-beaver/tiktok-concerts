@@ -56,6 +56,7 @@ export async function createEvent(formData: FormData) {
 
         // Update the events page with the new event
         revalidatePath('/artists');
+        revalidatePath('/users');
         return newEvent.toString();
     } catch (error) {
         console.log(error);
@@ -77,6 +78,7 @@ export async function deleteEvent(id: FormData) {
     try {
         await Event.deleteOne({ _id: eventId });
         revalidatePath('/artists');
+        revalidatePath('/users');
         return (`Successfully deleted event with id ${eventId}`);
     } catch (error) {
         return {message: 'Failed to delete event'};
@@ -115,6 +117,7 @@ export async function updateEvent(formData: FormData) {
             }
         );
         revalidatePath('/artists');
+        revalidatePath('/users');
         return (`Successfully updated event with id ${eventId}`);
     } catch (error) {
         return {message: 'Failed to update event'};
